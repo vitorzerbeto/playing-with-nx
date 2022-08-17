@@ -1,5 +1,3 @@
-
-
 # PlayingWithNx
 
 This project was generated using [Nx](https://nx.dev).
@@ -31,64 +29,36 @@ Below are our core plugins:
 
 There are also many [community plugins](https://nx.dev/community) you could add.
 
-## Generate an application
+# Quiz App
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
+**Tier:** 1-Beginner
 
-> You can use any of the plugins above to generate applications as well.
+Practice and test your knowledge by answering questions in a quiz application.
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+As a developer you can create a quiz application for testing coding skills of other developers. (HTML, CSS, JavaScript, Python, PHP, etc...)
 
-## Generate a library
+## User Stories
 
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
+- [ ] User can start the quiz by pressing a `button`
+- [ ] User can see a question with 4 possible answers
+- [ ] After selecting an answer, display the next question to the User. Do this until the quiz is finished
+- [ ] At the end, the User can see the following statistics
+  - Time it took to finish the quiz
+  - How many correct answers did he get
+  - A message showing if he `passed` or `failed` the quiz
 
-> You can also use any of the plugins above to generate libraries as well.
+## Bonus features
 
-Libraries are shareable across libraries and applications. They can be imported from `@playing-with-nx/mylib`.
+- [ ] User can share the result of a quiz on social media
+- [ ] Add multiple quizzes to the application. User can select which one to take
+- [ ] User can create an account and have all the scores saved in his dashboard. User can complete a quiz multiple times
 
-## Development server
+## Useful links and resources
 
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+- [Open Trivia Database](https://opentdb.com/api_config.php)
 
-## Code scaffolding
+## Example projects
 
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `nx e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+- [Quiz app built with React](http://tranquil-beyond-43849.herokuapp.com/) (wait for it to load as it is hosted on Heroku)
+- [Quiz app interface](https://codepen.io/FlorinPop17/full/qqYNgW)
+- [Quiz Progressive Web App built with React](https://github.com/SafdarJamal/quiz-app)

@@ -1,17 +1,14 @@
-import { Route, Routes, Link } from 'react-router-dom';
+import { Router } from './route';
+
+import './../index.css';
 
 export function App() {
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <div>
-            This is the generated root route. <Link to="/page-2">Click here for page 2.</Link>
-          </div>
-        }
-      />
-    </Routes>
+    <main className="bg-indigo-900 min-h-screen flex flex-row items-center justify-center p-9 font-">
+      <div className="max-w-7xl w-full">
+        <Router />
+      </div>
+    </main>
   );
 }
 
