@@ -7,3 +7,11 @@
     font-family: Proxima Nova, system-ui, sans-serif;
   }
 }
+
+/* CUSTOM COMPONENTS */
+.custon-button {
+  @apply w-full max-w-xs py-5 cursor-pointer rounded-lg text-3xl shadow-black transition-colors duration-300 text-center;
+}
+
+.answer-option {
+}
