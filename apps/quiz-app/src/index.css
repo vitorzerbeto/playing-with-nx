@@ -10,8 +10,5 @@
 
 /* CUSTOM COMPONENTS */
 .custon-button {
-  @apply w-full max-w-xs py-5 cursor-pointer rounded-lg text-3xl shadow-black transition-colors duration-300 text-center;
-}
-
-.answer-option {
+  @apply w-full max-w-lg px-5 py-2 cursor-pointer rounded-lg text-3xl shadow-black transition-colors duration-300 text-center;
 }

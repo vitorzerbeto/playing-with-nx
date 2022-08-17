@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { Home } from '../pages';
-import { Question } from '../pages/question';
+import { HomePage, QuestionsPage } from '../pages';
 
 export const ROUTES = {
   HOME: '/',
@@ -10,8 +9,8 @@ export const ROUTES = {
 export function Router() {
   return (
     <Routes>
-      <Route path={ROUTES.HOME} element={<Home />} />
-      <Route path={ROUTES.QUESTION} element={<Question />} />
+      <Route path={ROUTES.HOME} element={<HomePage />} />
+      <Route path={ROUTES.QUESTION} element={<QuestionsPage />} />
     </Routes>
   );
 }

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export function Home() {
+export function HomePage() {
   return (
     <div className="flex flex-col justify-center items-center gap-y-5">
       <h1 className="text-white text-7xl font-bold font-mono">Quizz Game!</h1>

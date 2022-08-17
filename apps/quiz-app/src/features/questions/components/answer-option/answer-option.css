@@ -1,0 +1,7 @@
+.answer-option span {
+  @apply w-full block rounded bg-white text-xl text-center cursor-pointer p-8 transition-all;
+}
+
+.answer-option input:checked ~ span {
+  @apply bg-emerald-400 text-white;
+}
