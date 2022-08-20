@@ -1,1 +1,1 @@
-export { Question } from './question';
+export { QuestionsContainer } from './questions-container';

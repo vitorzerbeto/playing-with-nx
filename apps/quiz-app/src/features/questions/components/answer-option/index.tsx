@@ -1,13 +1,13 @@
 import './answer-option.css';
 
-type IAnswerOption = {
+type IAnswerOptionProp = {
   value: string;
   text: string;
   isChecked?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export function AnswerOption({ text, value, isChecked = false, onChange }: IAnswerOption) {
+export function AnswerOption({ text, value, isChecked = false, onChange }: IAnswerOptionProp) {
   return (
     <label htmlFor={`answer-${value}`} className="answer-option">
       <input

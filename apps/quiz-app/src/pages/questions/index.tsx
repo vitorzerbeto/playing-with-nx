@@ -1,3 +1,8 @@
-import { Question } from '../../features/questions';
+import { useParams } from 'react-router-dom';
+import { QuestionsContainer } from '../../features/questions';
 
-export const QuestionsPage = () => <Question />;
+export function QuestionsPage() {
+  const { questionId } = useParams();
+
+  return <QuestionsContainer questionId={questionId} />;
+}
