@@ -20,7 +20,10 @@ export const Question = ({ onSelectAnswer }: IQuestionProp) => {
   return (
     <div className="flex flex-col items-center gap-10">
       <div className="w-full bg-sky-500/50 py-10 px-6 text-center rounded border-2 border-sky-500">
-        <h3 className="text-white text-5xl font-bold font-mono">{question?.title}</h3>
+        <h3
+          className="text-white text-3xl font-bold font-mono"
+          dangerouslySetInnerHTML={{ __html: question?.title }}
+        ></h3>
       </div>
       <div className="grid grid-cols-2 w-full max-w-4xl gap-3 mx-auto">
         {question?.answerOptions.map(({ title, value }) => (

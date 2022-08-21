@@ -1,31 +1,49 @@
 import { atom } from 'jotai';
 
-import { ILoadedQuestions } from '../types';
+import { ILoadedQuestions, IResponseQuestion } from '../types';
+import { decodeHTMLEntities } from '../utils/decodeHTMLEntities';
+import { shuffle } from '../utils/shuffle';
 
-const QUESTIONS: ILoadedQuestions = {
-  '1': {
-    id: '1',
-    title: 'Qual é a capital do Brasil?',
-    answer: 'brasilia',
-    answerOptions: [
-      { title: 'Brasília', value: 'brasilia' },
-      { title: 'São Paulo', value: 'saopaulo' },
-      { title: 'Rio de Janeiro', value: 'riodejaneiro' },
-      { title: 'Recífe', value: 'recife' },
-    ],
-    nextQuestion: '2',
-  },
-  '2': {
-    id: '2',
-    title: 'Quantos ossos tem o corpo humano?',
-    answer: '206',
-    answerOptions: [
-      { title: '206', value: '206' },
-      { title: '222', value: '222' },
-      { title: '123', value: '123' },
-      { title: '190', value: '190' },
-    ],
+const INITIAL_STATE: ILoadedQuestions = {
+  '0': {
+    id: '',
+    title: '',
+    answerOptions: [],
+    answer: '',
   },
 };
 
-export const loadedQuestionsAtom = atom<ILoadedQuestions>(QUESTIONS);
+function formatQuestionRequestToState(questions: IResponseQuestion[]): ILoadedQuestions {
+  const totalQuestions = questions.length;
+
+  const result = questions.reduce((acc, { question, incorrect_answers, correct_answer }, index) => {
+    const id = index + 1;
+
+    return {
+      ...acc,
+      [id]: {
+        id,
+        title: decodeHTMLEntities(question),
+        answerOptions: shuffle([...incorrect_answers, correct_answer]).map((answer) => ({
+          title: answer,
+          value: answer,
+        })),
+        answer: correct_answer,
+        nextQuestion: totalQuestions !== id && `${id + 1}`,
+      },
+    };
+  }, {});
+
+  console.log({ totalQuestions, result });
+
+  return result;
+}
+
+export const loadedQuestionsAtom = atom<ILoadedQuestions>(INITIAL_STATE);
+export const updateLoadedQuestionsAtom = atom(
+  null,
+  (get, set, { questions }: { questions: IResponseQuestion[] }) => {
+    const newQuestions = formatQuestionRequestToState(questions);
+    set(loadedQuestionsAtom, newQuestions);
+  }
+);

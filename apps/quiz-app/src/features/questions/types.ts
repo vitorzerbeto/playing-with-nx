@@ -19,3 +19,17 @@ export type IAnswer = {
 };
 
 export type IAnswers = Map<string, string>;
+
+export type IResponseQuestion = {
+  category: string;
+  type: string;
+  difficulty: string;
+  question: string;
+  correct_answer: string;
+  incorrect_answers: string[];
+};
+
+export type IResponseQuestionPayload = {
+  response_code: number;
+  results: IResponseQuestion[];
+};
