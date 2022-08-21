@@ -12,10 +12,10 @@ const getAnswers = (answers: IAnswers) => {
   return elements;
 };
 
-const DivAnswers = ([id, value]: [string, string]) => (
+const DivAnswers = ([id, value]: [string, boolean]) => (
   <div>
     <p>{id}</p>
-    <p>{value}</p>
+    <p>{value ? 'correta' : 'incorreta'}</p>
   </div>
 );
 

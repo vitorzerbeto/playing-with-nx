@@ -1,5 +1,5 @@
 import { useAtom } from 'jotai';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { AnswerOption } from '..';
 import { currentQuestionAtom } from '../../atoms/currentQuestion';
@@ -16,6 +16,10 @@ export const Question = ({ onSelectAnswer }: IQuestionProp) => {
     setSelectedAnswer(value);
     onSelectAnswer(value);
   };
+
+  useEffect(() => {
+    setSelectedAnswer('');
+  }, [question]);
 
   return (
     <div className="flex flex-col items-center gap-10">

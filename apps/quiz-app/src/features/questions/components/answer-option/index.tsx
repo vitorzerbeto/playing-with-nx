@@ -18,7 +18,7 @@ export function AnswerOption({ text, value, isChecked = false, onChange }: IAnsw
         onChange={(event) => onChange?.(event)}
         className="hidden"
       />
-      <span>{text}</span>
+      <span dangerouslySetInnerHTML={{ __html: text }}></span>
     </label>
   );
 }

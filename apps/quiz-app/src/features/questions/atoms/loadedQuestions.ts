@@ -25,7 +25,7 @@ function formatQuestionRequestToState(questions: IResponseQuestion[]): ILoadedQu
         id,
         title: decodeHTMLEntities(question),
         answerOptions: shuffle([...incorrect_answers, correct_answer]).map((answer) => ({
-          title: answer,
+          title: decodeHTMLEntities(answer),
           value: answer,
         })),
         answer: correct_answer,
@@ -33,8 +33,6 @@ function formatQuestionRequestToState(questions: IResponseQuestion[]): ILoadedQu
       },
     };
   }, {});
-
-  console.log({ totalQuestions, result });
 
   return result;
 }
@@ -47,3 +45,7 @@ export const updateLoadedQuestionsAtom = atom(
     set(loadedQuestionsAtom, newQuestions);
   }
 );
+export const getTotalQuestionsAtom = atom((get) => {
+  const questions = get(loadedQuestionsAtom);
+  return Object.keys(questions).length;
+});

@@ -15,10 +15,10 @@ export type ILoadedQuestions = Record<string, IQuestion>;
 
 export type IAnswer = {
   questionId: string;
-  userAnswer: string;
+  isCorrect: boolean;
 };
 
-export type IAnswers = Map<string, string>;
+export type IAnswers = Map<string, boolean>;
 
 export type IResponseQuestion = {
   category: string;

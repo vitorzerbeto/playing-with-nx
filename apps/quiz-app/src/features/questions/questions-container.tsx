@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Question } from './components';
 import { currentQuestionAtom, currentQuestionIdAtom } from './atoms/currentQuestion';
 import { addAnswersAtom } from './atoms/anwers';
+import { QuestionsProgress } from './components/questions-progress';
 
 interface IQuestionsContainer {
   questionId: string | undefined;
@@ -24,8 +25,8 @@ export function QuestionsContainer({ questionId }: IQuestionsContainer) {
   }, [questionId, setCurrentQuestionId]);
 
   const handleSelectOption = (value: string) => {
-    const { nextQuestion } = currentQuestion;
-    addAnwers({ questionId: questionId ?? '', userAnswer: value });
+    const { nextQuestion, answer } = currentQuestion;
+    addAnwers({ questionId: questionId ?? '', isCorrect: answer === value });
 
     if (nextQuestion) {
       navigate(`/question/${nextQuestion}`, { replace: false });
@@ -36,5 +37,10 @@ export function QuestionsContainer({ questionId }: IQuestionsContainer) {
 
   if (questionId === undefined) return <p>LOADING...</p>;
 
-  return <Question onSelectAnswer={handleSelectOption} />;
+  return (
+    <div>
+      <Question onSelectAnswer={handleSelectOption} />
+      <QuestionsProgress />
+    </div>
+  );
 }
